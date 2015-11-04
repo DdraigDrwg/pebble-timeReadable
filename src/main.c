@@ -55,7 +55,7 @@
 
 // simply_light ui_weather_update()  struct State  ui.state.error = FETCH_ERROR;  handle_failed_message
 // update_weather() - move getch array to global scope??
-
+// timeStyle  fetches and then saves waether
   
 //static  int temp_temp = 0;
 static BitmapLayer *icon_left_layer,*icon_middle_layer,*icon_right_layer;
@@ -466,3 +466,5 @@ int main(void) {
   
 
 }
+
+
