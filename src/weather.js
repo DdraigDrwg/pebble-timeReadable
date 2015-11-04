@@ -3,18 +3,6 @@ var temperatureNow;
 var conditionsNow;
 var httperror = 2;
 
-//getting messy delete all and
-// requisite ex:
-// locationSuccess() {
-//
-// getcurrent()
-// getforecast()
-// sendApp(dictionary)
-// }
-
-// mystyle uses http error codes
-
-
 /*
 // seems to work ok
 var oXHR = new XMLHttpRequest();
@@ -35,7 +23,7 @@ oXHR.send(null);
 
 
 // original
-/*
+
 var xhrRequest = function (url, type, callback) {
   var xhr = new XMLHttpRequest();
    xhr.onload = function () {
@@ -44,7 +32,7 @@ var xhrRequest = function (url, type, callback) {
   xhr.open(type, url);
   xhr.send();
 };
-*/
+
 
 // doesn't work any better than original
 /*
@@ -68,53 +56,6 @@ var xhrRequest = function (url, type, callback) {
   xhr.send();
   };
 */
-// requisite ex:
-// locationSuccess() {
-//
-// getcurrent()
-// getforecast()
-// sendApp(dictionary)
-// }
-
-function getWeatherURL(path, pos) {
-    var url = 'http://api.openweathermap.org/data/2.5/' + path + '?cnt=2&mode=json' +
-      '&APPID=' + '28f3872efff1012afb9c3d415d2d14b5' +
-      '&lat=' + pos.coords.latitude + 
-      '&lon=' + pos.coords.longitude;
-    return url;
-}
-
-function getWeatherCurrent(pos) {
-  console.log('getWeatherCurrent: Get current weather for location...');
-  // current weather
-  var urlweather = getWeatherURL('weather', pos);
-  
-  xhrRequest(url, 'GET', 
-    function(responseText) {
-      
-      var oXHR = new XMLHttpRequest();
-oXHR.open("GET", urlweather, true);
-oXHR.onreadystatechange = function (oEvent) {  
-    if (oXHR.readyState === 4) {  
-        if (oXHR.status === 200) {  
-          httperror = httperror - 1;
-          console.log(oXHR.responseText);
-          console.log("Error >", httperror);
-          // responseText contains a JSON object with weather info
-        var jsonWeather = JSON.parse(oXHR.responseText);
-   
-  
-      
-      var response = {
-        'KEY_WEATHER_TEMPERATURE_CURRENT': temperature_current,
-        'KEY_WEATHER_CONDITIONS': conditions,
-        'KEY_WEATHER_WIND_SPEED': wind_speed,
-        'KEY_WEATHER_WIND_DIRECTION': wind_direction
-      };
-      
-         }      
-  );
-}
 
 function locationSuccess(pos) {
   // Construct URL forecast
@@ -133,7 +74,7 @@ function locationSuccess(pos) {
       "&APPID=28f3872efff1012afb9c3d415d2d14b5";
       // wrong appid:
       //    "&APPID=28f3872efff1012afb9c3d415d2d14b";
-  /*
+  
  // current weather 
   xhrRequest(urlweather, 'GET', 
     function(responseText) {
@@ -150,47 +91,12 @@ function locationSuccess(pos) {
 
     }      
   );
-  */
   
-  var oXHR = new XMLHttpRequest();
-oXHR.open("GET", urlweather, true);
-oXHR.onreadystatechange = function (oEvent) {  
-    if (oXHR.readyState === 4) {  
-        if (oXHR.status === 200) {  
-          httperror = httperror - 1;
-          console.log(oXHR.responseText);
-          console.log("Error >", httperror);
-          // responseText contains a JSON object with weather info
-        var jsonWeather = JSON.parse(oXHR.responseText);
-
-      // Temperature in Kelvin requires adjustment
-     temperatureNow = Math.round(jsonWeather.main.temp - 273.15);
-      console.log("temperatureNow is " + temperatureNow);
-
-      // Conditions
-       conditionsNow = jsonWeather.weather[0].id;      
-      console.log("conditionsNow are " + conditionsNow);
-       
-        } else {  
-          console.log("Error statusText", oXHR.statusText);  
-          console.log("Error >>", httperror);
-        }
-          }  
-}; 
-oXHR.send(null); 
-  
- // doesn't show error properly for forecast sendAppMessage in same code block?
-  var oXHR2 = new XMLHttpRequest();
-oXHR2.open("GET", urlforecast, true);
-oXHR2.onreadystatechange = function (oEvent) {  
-    if (oXHR2.readyState === 4) {  
-        if (oXHR2.status === 200) {  
-          httperror = httperror - 1;
-          console.log(oXHR2.responseText);
-          console.log("Error >", httperror);
-
-              // responseText contains a JSON object with weather info
-      var jsonForecast = JSON.parse(oXHR2.responseText);
+  // Send request to OpenWeatherMap for forecast
+  xhrRequest(urlforecast, 'GET', 
+    function(responseText) {
+      // responseText contains a JSON object with weather info
+      var jsonForecast = JSON.parse(responseText);
 
       // Temperature in Kelvin requires adjustment
       var temperatureForecast = Math.round(jsonForecast.list[2].main.temp - 273.15)+"|"+Math.round(jsonForecast.list[4].main.temp - 273.15);
@@ -217,7 +123,7 @@ oXHR2.onreadystatechange = function (oEvent) {
       console.log("timedate is " + timedate);
       console.log("httperror is " + httperror);
       // Assemble dictionary using our keys
-      var  dictionary = {
+      var dictionary = {
         "KEY_TEMPERATURE": temperature,
         "KEY_CONDITIONS": conditions,
         "KEY_TIMESTAMP": timestamp, 
@@ -225,7 +131,8 @@ oXHR2.onreadystatechange = function (oEvent) {
         "KEY_TEMP": temperatureList,
         "KEY_HTTPERROR": httperror
       };
-                 // Send to Pebble
+
+      // Send to Pebble
       Pebble.sendAppMessage(dictionary,
         function(e) {
           console.log("Weather info sent to Pebble successfully!");
@@ -234,16 +141,8 @@ oXHR2.onreadystatechange = function (oEvent) {
           console.log("Error sending weather info to Pebble!");
         }
       );
-       
-        } else {  
-          console.log("Error statusText", oXHR2.statusText);  
-          console.log("Error >>", httperror);
-        }
-          }  
-}; 
-oXHR2.send(null); 
-
- 
+    }      
+  );
 }
 
 function locationError(err) {
