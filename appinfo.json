@@ -11,43 +11,43 @@
         "location"
     ],
     "companyName": "Pebble",
-    "longName": "watch16",
+    "longName": "watch17",
     "projectType": "native",
     "resources": {
         "media": [
             {
-                "file": "fonts/DroidSans.ttf",
-                "name": "FONT_DROID_SANS_14",
+                "file": "fonts/GillSansUltraBold",
+                "name": "FONT_HHGTTG_20",
                 "type": "font"
             },
             {
-                "file": "fonts/DroidSans.ttf",
-                "name": "FONT_DROID_SANS_18",
-                "type": "font"
-            },
-            {
-                "file": "fonts/DroidSans.ttf",
-                "name": "FONT_DROID_SANS_8",
-                "type": "font"
-            },
-            {
-                "file": "images/clear-day40T.png",
-                "name": "IMAGE_CD40T",
+                "file": "images/cloudy40.png",
+                "name": "IMAGE_CLOUDY",
                 "type": "png-trans"
             },
             {
-                "file": "images/thunder40.png",
-                "name": "IMAGE_THUNDER",
+                "file": "images/wind40.png",
+                "name": "IMAGE_WIND",
                 "type": "png-trans"
             },
             {
-                "file": "images/rain40.png",
-                "name": "IMAGE_RAIN",
+                "file": "images/not-available40.png",
+                "name": "IMAGE_NA",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/snow40.png",
+                "name": "IMAGE_SNOW",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/fog40.png",
+                "name": "IMAGE_FOG",
                 "type": "png-trans"
             },
             {
                 "file": "fonts/watchfont.ttf",
-                "name": "FONT_SIMPLE_BIG_40",
+                "name": "FONT_SIMPLE_BIG_60",
                 "type": "font"
             },
             {
@@ -57,43 +57,43 @@
             },
             {
                 "file": "fonts/watchfont.ttf",
-                "name": "FONT_SIMPLE_BIG_60",
+                "name": "FONT_SIMPLE_BIG_40",
                 "type": "font"
             },
             {
-                "file": "images/fog40.png",
-                "name": "IMAGE_FOG",
+                "file": "images/rain40.png",
+                "name": "IMAGE_RAIN",
                 "type": "png-trans"
             },
             {
-                "file": "images/snow40.png",
-                "name": "IMAGE_SNOW",
+                "file": "images/thunder40.png",
+                "name": "IMAGE_THUNDER",
                 "type": "png-trans"
             },
             {
-                "file": "images/not-available40.png",
-                "name": "IMAGE_NA",
+                "file": "images/clear-day40T.png",
+                "name": "IMAGE_CD40T",
                 "type": "png-trans"
             },
             {
-                "file": "images/wind40.png",
-                "name": "IMAGE_WIND",
-                "type": "png-trans"
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_8",
+                "type": "font"
             },
             {
-                "file": "images/cloudy40.png",
-                "name": "IMAGE_CLOUDY",
-                "type": "png-trans"
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_18",
+                "type": "font"
             },
             {
-                "file": "fonts/GillSansUltraBold",
-                "name": "FONT_HHGTTG_20",
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_14",
                 "type": "font"
             }
         ]
     },
     "sdkVersion": "3",
-    "shortName": "watch16",
+    "shortName": "watch17",
     "targetPlatforms": [
         "basalt"
     ],
