@@ -1,0 +1,105 @@
+{
+    "appKeys": {
+        "KEY_CONDITIONS": 1,
+        "KEY_HTTPERROR": 5,
+        "KEY_TEMP": 4,
+        "KEY_TEMPERATURE": 0,
+        "KEY_TIMEDATE": 3,
+        "KEY_TIMESTAMP": 2
+    },
+    "capabilities": [
+        "location"
+    ],
+    "companyName": "Pebble",
+    "longName": "watch16",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_14",
+                "type": "font"
+            },
+            {
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_18",
+                "type": "font"
+            },
+            {
+                "file": "fonts/DroidSans.ttf",
+                "name": "FONT_DROID_SANS_8",
+                "type": "font"
+            },
+            {
+                "file": "images/clear-day40T.png",
+                "name": "IMAGE_CD40T",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/thunder40.png",
+                "name": "IMAGE_THUNDER",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/rain40.png",
+                "name": "IMAGE_RAIN",
+                "type": "png-trans"
+            },
+            {
+                "file": "fonts/watchfont.ttf",
+                "name": "FONT_SIMPLE_BIG_40",
+                "type": "font"
+            },
+            {
+                "file": "fonts/watchfont.ttf",
+                "name": "FONT_SIMPLE_BIG_110",
+                "type": "font"
+            },
+            {
+                "file": "fonts/watchfont.ttf",
+                "name": "FONT_SIMPLE_BIG_60",
+                "type": "font"
+            },
+            {
+                "file": "images/fog40.png",
+                "name": "IMAGE_FOG",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/snow40.png",
+                "name": "IMAGE_SNOW",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/not-available40.png",
+                "name": "IMAGE_NA",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/wind40.png",
+                "name": "IMAGE_WIND",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/cloudy40.png",
+                "name": "IMAGE_CLOUDY",
+                "type": "png-trans"
+            },
+            {
+                "file": "fonts/GillSansUltraBold",
+                "name": "FONT_HHGTTG_20",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "watch16",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "0bcd4bdf-c4a4-45e7-a9ed-00fa2a87f010",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
